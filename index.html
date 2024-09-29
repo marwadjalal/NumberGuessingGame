@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+    <script>
+        // A FUCKING NUMBER GUESSING GAME
+
+        const min = 1; 
+        const max = 100;
+        const answer = Math.floor(Math.random() * (max - min + 1) + min);
+
+        let guess;
+        let running = true;
+        let attemps = 0;
+
+        while (running) {
+            guess = Number(window.prompt(`Guess a fucking number between [${min}-${max}]`));
+
+            if (isNaN(guess) || guess < min || guess > max) {
+                window.alert(`Enter a fucking valid number!`);
+                attemps++;
+            } else {
+                attemps++;
+                if (guess < answer) {
+                    window.alert(`You are fucking low!`);
+                } else if (guess > answer) {
+                    window.alert(`You are fucking high!`);
+                } else if (guess === answer) {
+                    window.alert(`You guessed the number ${answer} in ${attemps} fucking attempts!`);
+                    running = false;   
+                }
+            }
+        }
+    </script>
+</body>
+</html>
